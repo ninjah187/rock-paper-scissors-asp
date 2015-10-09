@@ -1,0 +1,114 @@
+﻿@{
+    Layout = "~/Layouts/_BasicLayout.cshtml";
+}
+
+<div id="rps-body-container">
+
+<div id="rps-head-jumbotron" class="jumbotron">
+    <h1 id="rps-main-header" class="rps-h1">Choose your shape</h1>
+</div>
+
+<div id="rps-main-container" class="container-fluid">
+    <div class="row">
+        <div class="rps-container-full-width">
+            <div class="col-md-4 col-sm-6">
+                <a><img src="~/Images/rock.png" id="rps-rock-symbol" class="img-responsive rps-symbol-img"/></a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a><img src="~/Images/paper.png" id="rps-paper-symbol" class="img-responsive rps-symbol-img"/></a>
+            </div>
+            <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-4">
+                <a><img src="~/Images/scissors.png" id="rps-scissors-symbol" class="img-responsive rps-symbol-img"/></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#rps-head-jumbotron").css("opacity", "0");
+        $(".rps-symbol-img").css("opacity", "0");
+        setTimeout(displayHeadJumbotron, 250);
+        //displayHeadJumbotron();
+        
+        $(".rps-symbol-img").mouseenter(function() {
+            $(this).animate(
+                {
+                    //"border-style": "solid",
+                    //"border-color": "black",
+                    //"border-width": "10px",
+                    "border-radius": "50px"
+                },
+                250
+            );
+        });
+
+        $(".rps-symbol-img").mouseleave(function() {
+            $(this).css("border-radius", "0px");
+        });
+
+        $("#rps-rock-symbol").click(function() {
+            askForName(0);
+        });
+
+        $("#rps-paper-symbol").click(function () {
+            askForName(1);
+        });
+
+        $("#rps-scissors-symbol").click(function () {
+            askForName(2);
+        });
+    });
+
+    function displayHeadJumbotron() {
+        $("#rps-head-jumbotron").animate(
+            { "opacity": "1" },
+            1000,
+            function () {
+                displaySymbols();
+            }
+        );
+    }
+
+    function displaySymbols() {
+        $(".rps-symbol-img").animate(
+            { "opacity": "1" },
+            1000,
+            function() {
+                
+            }
+        );
+    }
+
+    // chosenSymbol may be 0, 1 or 2
+    function askForName(symbol) {
+        $("#rps-main-container").fadeOut(500);
+        
+        var requestUrl = "/Game/AskName/";
+        var request = $.ajax({
+            method: "POST",
+            url: requestUrl,
+            data: { chosenSymbol: symbol }
+        });
+
+        request.done(function(msg) {
+            $("#rps-main-header").animate(
+                { "opacity": 0 },
+                500
+            );
+            setTimeout(function() {
+                $("#rps-main-header").html("Enter your name");
+            }, 500);
+            $("#rps-main-header").animate(
+                { "opacity": 1 },
+                500
+            );
+
+            setTimeout(function() {
+                $("#rps-main-container").html(msg).fadeIn(500);
+            }, 500);
+        });
+    }
+</script>

@@ -1,0 +1,36 @@
+﻿@model RockPaperScissorsASP.Models.Symbol
+@{
+    Layout = "~/Layouts/_BasicLayout.cshtml";
+}
+
+<div class="container">
+    <div class="form-group">
+        <input id="rps-name-input" type="text" class="rps-text-input"/>
+        <div style="text-align: center">
+            <button type="button" class="btn btn-default rps-btn">
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+            <button type="button" id="rps-back-btn" class="btn btn-default rps-btn">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#rps-back-btn").click(function () {
+            $("#rps-body-container").fadeOut(500);
+
+            setTimeout(function() {
+                window.location.replace("/Home/Index");
+            }, 500);
+
+            //window.location.replace("/Home/Index"); // as an http redirect (back button will not work)
+
+            // like if you click on a link (it will be saved in the session history,
+            // so the back button will work as expected)
+            //window.location.href = "/Home/Index";
+        });
+    });
+</script>
