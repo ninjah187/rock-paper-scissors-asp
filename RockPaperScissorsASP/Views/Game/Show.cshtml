@@ -1,0 +1,58 @@
+﻿@model RockPaperScissorsASP.Models.Game
+@{
+    Layout = "~/Layouts/_BasicLayout.cshtml";
+}
+
+<div id="rps-body-container">
+    @{
+        var header = Model.Player2 == null ? "Game in progress" : "Game completed";
+        <div id="rps-head-jumbotron" class="jumbotron">
+            <h1 id="rps-main-header" class="rps-h1 rps-bold">@header</h1>
+        </div>
+    }
+
+    <div id="rps-main-container">
+        <div class="rps-content-container">
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <h2>@Model.Player1.Name</h2>
+                    @{
+                        var iconParser = new SymbolToGlyphIconParser();
+                        var className = iconParser.Parse(Model.Player1.Symbol);
+
+                        <h2 class="@className"></h2>
+                    }
+                </div>
+
+                <div class="col-md-2 col-sm-12">
+                    <h1 class="rps-1 rps-bold">vs.</h1>
+                </div>
+
+                <div class="col-md-5 col-sm-12">
+                    @if (Model.Player2 == null)
+                    {
+                        <div id="rps-play-btn" class="btn btn-default rps-btn">Participate</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#rps-body-container").css("opacity", "0");
+        $("#rps-body-container").animate({
+            opacity: 1
+        }, 1000);
+
+        $("#rps-play-btn").click(function() {
+            $("#rps-body-container").fadeOut(1000);
+
+            var id = "@Model.Id";
+            setTimeout(function() {
+                window.location.replace("/Game/Play/" + id);
+            }, 1000);
+        });
+    });
+</script>

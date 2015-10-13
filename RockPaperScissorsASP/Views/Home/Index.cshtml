@@ -5,24 +5,26 @@
 <div id="rps-body-container">
 
 <div id="rps-head-jumbotron" class="jumbotron">
-    <h1 id="rps-main-header" class="rps-h1">Choose your shape</h1>
+    <h1 id="rps-main-header" class="rps-h1 rps-bold">Choose your shape</h1>
 </div>
 
-<div id="rps-main-container" class="container-fluid">
-    <div class="row">
-        <div class="rps-container-full-width">
-            <div class="col-md-4 col-sm-6">
-                <a><img src="~/Images/rock.png" id="rps-rock-symbol" class="img-responsive rps-symbol-img"/></a>
+    <div id="rps-main-container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="rps-container-full-width">
+                    <div class="col-md-4 col-sm-6">
+                        <a><img src="~/Images/rock.png" id="rps-rock-symbol" class="img-responsive rps-symbol-img"/></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a><img src="~/Images/paper.png" id="rps-paper-symbol" class="img-responsive rps-symbol-img"/></a>
+                    </div>
+                    <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-4">
+                        <a><img src="~/Images/scissors.png" id="rps-scissors-symbol" class="img-responsive rps-symbol-img"/></a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <a><img src="~/Images/paper.png" id="rps-paper-symbol" class="img-responsive rps-symbol-img"/></a>
             </div>
-            <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-4">
-                <a><img src="~/Images/scissors.png" id="rps-scissors-symbol" class="img-responsive rps-symbol-img"/></a>
-            </div>
-        </div>
     </div>
-</div>
 
     </div>
 
@@ -109,6 +111,33 @@
             setTimeout(function() {
                 $("#rps-main-container").html(msg).fadeIn(500);
             }, 500);
+        });
+    }
+
+    function createGame(playerName) {
+        $("#rps-main-container").fadeOut(500);
+
+        var requestUrl = "/Game/Create/";
+        var request = $.ajax({
+            method: "POST",
+            url: requestUrl,
+            data: { name: playerName }
+        });
+
+        request.done(function(msg) {
+            $("#rps-main-header").fadeOut(500);
+            setTimeout(function() {
+                $("#rps-main-header").html("Game created");
+            }, 500);
+            $("#rps-main-header").fadeIn(500);
+
+            setTimeout(function() {
+                $("#rps-main-container").html(msg).fadeIn(500);
+            }, 500);
+        });
+
+        request.error(function(msg) {
+            alert(msg);
         });
     }
 </script>

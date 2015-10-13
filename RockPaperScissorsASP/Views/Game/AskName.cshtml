@@ -7,7 +7,7 @@
     <div class="form-group">
         <input id="rps-name-input" type="text" class="rps-text-input"/>
         <div style="text-align: center">
-            <button type="button" class="btn btn-default rps-btn">
+            <button type="button" id="rps-ok-btn" class="btn btn-default rps-btn">
                 <span class="glyphicon glyphicon-ok"></span>
             </button>
             <button type="button" id="rps-back-btn" class="btn btn-default rps-btn">
@@ -19,6 +19,11 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        $("#rps-ok-btn").click(function () {
+            var name = $("#rps-name-input").val();
+            createGame(name);
+        });
+
         $("#rps-back-btn").click(function () {
             $("#rps-body-container").fadeOut(500);
 

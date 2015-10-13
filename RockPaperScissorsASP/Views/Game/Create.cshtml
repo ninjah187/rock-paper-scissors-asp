@@ -1,0 +1,49 @@
+﻿@using RockPaperScissorsASP.Models
+@model RockPaperScissorsASP.Models.Game
+@{
+    Layout = "~/Layouts/_BasicLayout.cshtml";
+}
+
+<div class="rps-content-container">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <h2 class="rps-bold">Game URL:</h2>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            @{
+                string url = @"http://localhost:43407/Game/Show/" + @Model.Id;
+                <a href="@url">
+                    <h2>@url</h2>
+                </a>
+            }
+        </div>
+    </div>
+
+    <hr class="rps-hr" />
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <h2 class="rps-bold">Your name:</h2>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <h2>@Model.Player1.Name</h2>
+        </div>
+    </div>
+
+    <hr class="rps-hr" />
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <h2 class="rps-bold">Your symbol:</h2>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            @{
+                var parser = new SymbolToGlyphIconParser();
+                var className = parser.Parse(Model.Player1.Symbol);
+
+                <h2 class="@className"></h2>
+            }
+        </div>
+    </div>
+
+</div>

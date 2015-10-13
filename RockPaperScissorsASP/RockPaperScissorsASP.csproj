@@ -102,14 +102,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataLoaders\GameLoader.cs" />
+    <Compile Include="DataLoaders\ILoader.cs" />
+    <Compile Include="DataLoaders\IModelLoader.cs" />
     <Compile Include="GameDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\IModelElement.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Symbol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SymbolToGlyphIconParser.cs" />
+    <Compile Include="ISymbolToIconParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -118,6 +124,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Game\AskName.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Views\Game\Create.cshtml" />
+    <Content Include="Views\Game\GameInProgress.cshtml" />
+    <Content Include="Views\Game\GameCompleted.cshtml" />
+    <Content Include="Views\Game\Show.cshtml" />
+    <Content Include="Views\Game\Play.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

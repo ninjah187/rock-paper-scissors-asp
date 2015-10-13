@@ -5,7 +5,7 @@ using System.Web;
 
 namespace RockPaperScissorsASP.Models
 {
-    public class Game
+    public class Game : IModelElement
     {
         public int Id { get; set; }
         

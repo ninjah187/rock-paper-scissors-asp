@@ -2,7 +2,7 @@
     background: #222;
 }
 
-#rps-head-jumbotron {
+#rps-head-jumbotron, .rps-content-container  {
     background: white;
     color: black;
     border-style: solid;
@@ -11,6 +11,16 @@
     border-bottom-width: 10px;
     border-left-width: 0;
     border-right-width: 0;
+}
+
+.rps-content-container {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.rps-bold {
+    font-weight: bold;
 }
 
 .rps-container-full-width {
@@ -56,4 +66,10 @@
     border-radius: 0;
     border-width: 5px;
     width: 100%;
+}
+
+.rps-hr {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
 }
