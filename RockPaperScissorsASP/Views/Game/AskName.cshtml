@@ -18,17 +18,19 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#rps-ok-btn").click(function () {
+    var gameId = "@ViewBag.GameId";
+
+    $(document).ready(function() {
+        $("#rps-ok-btn").click(function() {
             var name = $("#rps-name-input").val();
-            createGame(name);
+            submitName(gameId, name);
         });
 
-        $("#rps-back-btn").click(function () {
+        $("#rps-back-btn").click(function() {
             $("#rps-body-container").fadeOut(500);
 
             setTimeout(function() {
-                window.location.replace("/Home/Index");
+                window.location.replace("/Game/Play/");
             }, 500);
 
             //window.location.replace("/Home/Index"); // as an http redirect (back button will not work)

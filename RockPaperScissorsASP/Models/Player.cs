@@ -10,5 +10,7 @@ namespace RockPaperScissorsASP.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public Symbol? Symbol { get; set; }
+
+        public virtual Game Game { get; set; }
     }
 }

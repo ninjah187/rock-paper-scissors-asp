@@ -11,6 +11,7 @@
     border-bottom-width: 10px;
     border-left-width: 0;
     border-right-width: 0;
+    text-align: center;
 }
 
 .rps-content-container {
@@ -72,4 +73,12 @@
     border-style: solid;
     border-color: black;
     border-width: 2px;
+}
+
+.rps-winner {
+    color: lawngreen;
+}
+
+.rps-loser {
+    color: firebrick;
 }

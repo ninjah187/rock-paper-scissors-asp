@@ -100,15 +100,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="UrlGeneration\BasicUrlGenerator.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataLoaders\GameLoader.cs" />
     <Compile Include="DataLoaders\ILoader.cs" />
     <Compile Include="DataLoaders\IModelLoader.cs" />
     <Compile Include="GameDbContext.cs" />
+    <Compile Include="GameSolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="UrlGeneration\IGameUrlGenerator.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\IModelElement.cs" />
     <Compile Include="Models\Player.cs" />
@@ -116,6 +119,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SymbolToGlyphIconParser.cs" />
     <Compile Include="ISymbolToIconParser.cs" />
+    <Compile Include="UrlGeneration\NumberRangeGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -129,6 +133,7 @@
     <Content Include="Views\Game\GameCompleted.cshtml" />
     <Content Include="Views\Game\Show.cshtml" />
     <Content Include="Views\Game\Play.cshtml" />
+    <Content Include="Views\Game\ShowPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

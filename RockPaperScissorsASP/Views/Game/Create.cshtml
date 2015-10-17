@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-6 col-sm-12">
             @{
-                string url = @"http://localhost:43407/Game/Show/" + @Model.Id;
+                string url = @"http://localhost:43407/Game/Show/" + @Model.RefLink;
                 <a href="@url">
                     <h2>@url</h2>
                 </a>

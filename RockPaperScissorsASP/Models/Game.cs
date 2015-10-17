@@ -8,7 +8,8 @@ namespace RockPaperScissorsASP.Models
     public class Game : IModelElement
     {
         public int Id { get; set; }
-        
+        public string RefLink { get; set; }
+
         public virtual Player Player1 { get; set; }
         public virtual Player Player2 { get; set; }
     }
