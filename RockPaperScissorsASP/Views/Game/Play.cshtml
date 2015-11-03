@@ -44,15 +44,15 @@
         $(".rps-symbol-img").css("opacity", "0");
         setTimeout(displayHeadJumbotron, 250);
 
-        $(".rps-symbol-img").mouseenter(function() {
-            $(this).animate({
-                "border-radius": "50px"
-            }, 250);
-        });
+        //$(".rps-symbol-img").mouseenter(function() {
+        //    $(this).animate({
+        //        "border-radius": "50px"
+        //    }, 250);
+        //});
 
-        $(".rps-symbol-img").mouseleave(function() {
-            $(this).css("border-radius", 0);
-        });
+        //$(".rps-symbol-img").mouseleave(function() {
+        //    $(this).css("border-radius", 0);
+        //});
 
         $("#rps-rock-symbol").click(function () {
             askForName(gameId, 0);
@@ -65,29 +65,6 @@
         $("#rps-scissors-symbol").click(function () {
             askForName(gameId, 2);
         });
-
-        function askForName(gId, symbol) {
-            $("#rps-main-container").fadeOut(500);
-
-            var requestUrl = "/Game/AskName/";
-            var request = $.ajax({
-                method: "POST",
-                url: requestUrl,
-                data: { gameId: gId, chosenSymbol: symbol }
-            });
-
-            request.done(function(msg) {
-                $("#rps-main-header").fadeOut(500);
-                setTimeout(function() {
-                    $("#rps-main-header").html("Enter your name");
-                }, 500);
-                $("#rps-main-header").fadeIn(500);
-
-                setTimeout(function() {
-                    $("#rps-main-container").html(msg).fadeIn(500);
-                }, 500);
-            });
-        }
     });
 
     function displayHeadJumbotron() {
@@ -107,8 +84,37 @@
         );
     }
 
+    function askForName(gId, symbol) {
+        $("#rps-main-container").fadeOut(500);
+
+        var requestUrl = "/Game/AskName/";
+        var request = $.ajax({
+            method: "POST",
+            url: requestUrl,
+            data: { gameId: gId, chosenSymbol: symbol }
+        });
+
+        request.done(function(msg) {
+            $("#rps-main-header").fadeOut(500);
+            setTimeout(function () {
+                $("#rps-main-header").html("Enter your name");
+            }, 500);
+            $("#rps-main-header").fadeIn(500);
+
+            setTimeout(function () {
+                $("#rps-main-container").html(msg).fadeIn(500);
+            }, 500);
+        });
+    }
+
     function submitName(gId, playerName) {
         $("#rps-main-container").fadeOut(500);
+
+        $("#rps-main-header").fadeOut(500, function() {
+            $(this).html("Creating game");
+            $(this).fadeIn(500);
+        });
+
 
         var requestUrl = "/Game/Submit/";
         var request = $.ajax({
@@ -131,10 +137,6 @@
             //} else {
                 
             //}
-        });
-
-        request.error(function() {
-            alert("wchuj");
         });
     }
 </script>

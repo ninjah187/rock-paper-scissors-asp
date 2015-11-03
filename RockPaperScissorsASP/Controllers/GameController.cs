@@ -85,6 +85,8 @@ namespace RockPaperScissorsASP.Controllers
                     var urlGenerator = new BasicUrlGenerator();
                     game.RefLink = urlGenerator.GetUrl(game.Id);
 
+                    context.SaveChanges();
+
                     return PartialView("Create", game);
                 }
                 else

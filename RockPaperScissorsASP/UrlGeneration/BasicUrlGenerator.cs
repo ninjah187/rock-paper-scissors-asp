@@ -108,20 +108,38 @@ namespace RockPaperScissorsASP.UrlGeneration
             }
         }
 
+        //private void UpdateUrl(int id)
+        //{
+        //    if (id < 0)
+        //    {
+        //        return;
+        //    }
+
+        //    int x = id % 62;
+
+        //    _url.Add(_dictionary[x]);
+
+        //    id -= 62;
+
+        //    UpdateUrl(id);
+        //}
+
         private void UpdateUrl(int id)
         {
-            if (id < 0)
+            while (true)
             {
-                return;
+                if (id < 0)
+                {
+                    return;
+                }
+
+                int x = id % 62;
+
+                _url.Add(_dictionary[x]);
+
+                id -= 62;
             }
-
-            int x = id % 62;
-
-            _url.Add(_dictionary[x]);
-
-            id -= 62;
-
-            UpdateUrl(id);
         }
+
     }
 }
