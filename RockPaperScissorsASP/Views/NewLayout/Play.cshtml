@@ -3,22 +3,89 @@
     Layout = "~/Layouts/_BasicLayout.cshtml";
 }
 
-<div class="container rps-symbols-container">
+<div id="rps-main-container" class="container">
     <div class="row">
         <div class="col-md-4">
-            <div class="rps-symbol-icon-container">
+            <div id="rps-rock-symbol" class="rps-symbol-icon-container">
                 <span class="fa fa-hand-rock-o rps-symbol-icon"></span>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="rps-symbol-icon-container">
+            <div id="rps-paper-symbol" class="rps-symbol-icon-container">
                 <span class="fa fa-hand-paper-o rps-symbol-icon"></span>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="rps-symbol-icon-container">
+            <div id="rps-scissors-symbol" class="rps-symbol-icon-container">
                 <span class="fa fa-hand-scissors-o rps-symbol-icon"></span>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    @{
+        var id = Model != null ? Model.Id : -1;
+    }
+
+    var gameId = "@id";
+
+    function askForName(gId, symbol) {
+        var requestUrl = "/Game/AskName/";
+        var request = $.ajax({
+            method: "POST",
+            url: requestUrl,
+            data: { gameId: gId, chosenSymbol: symbol }
+        });
+
+        request.done(function (msg) {
+            $("#rps-header-subtitle").html("ENTER YOUR NAME");
+
+            $("#rps-main-container").html(msg);
+        });
+    }
+    function smoothScrollToTop(continueWith) {
+        // smooth scrolling to an element:
+        $("html, body").animate({
+            scrollTop: $("#rps-body").offset().top
+        },
+        500,
+        continueWith);
+    }
+
+    function submitName(gId, playerName) {
+        var requestUrl = "/Game/Submit/";
+        var request = $.ajax({
+            method: "POST",
+            url: requestUrl,
+            data: { id: gId, name: playerName }
+        });
+
+        request.done(function (msg) {
+            $("#rps-header-subtitle").html("GAME CREATED");
+            $("#rps-main-container").html(msg);
+        });
+    }
+
+    $(document).ready(function () {
+        $("#rps-header-subtitle").html("CHOOSE YOUR SHAPE");
+
+        $("#rps-rock-symbol").click(function () {
+            smoothScrollToElement($("html"), function() {
+                askForName(gameId, 0);
+            });
+        });
+
+        $("#rps-paper-symbol").click(function () {
+            smoothScrollToElement($("html"), function() {
+                askForName(gameId, 1);
+            });
+        });
+
+        $("#rps-scissors-symbol").click(function () {
+            smoothScrollToElement($("html"), function() {
+                askForName(gameId, 2);
+            });
+        });
+    });
+</script>

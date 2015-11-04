@@ -11,7 +11,6 @@ D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\System.Web.Webpages.x
 D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\System.Web.Webpages.Deployment.xml
 D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\System.Web.Webpages.Razor.xml
 D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\System.Web.Helpers.xml
-D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\obj\Debug\RockPaperScissorsASP.csprojResolveAssemblyReference.cache
 D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\obj\Debug\RockPaperScissorsASP.dll
 D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\obj\Debug\RockPaperScissorsASP.pdb
 D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\System.Web.Mvc.dll
@@ -20,3 +19,9 @@ D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\EntityFramework.dll
 D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\EntityFramework.SqlServer.dll
 D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\EntityFramework.xml
 D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\EntityFramework.SqlServer.xml
+D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\Microsoft.Web.Helpers.dll
+D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\WebMatrix.Data.dll
+D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\WebMatrix.WebData.dll
+D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\WebMatrix.Data.xml
+D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\bin\WebMatrix.WebData.xml
+D:\Pisane\C#\RockPaperScissorsASP\RockPaperScissorsASP\obj\Debug\RockPaperScissorsASP.csprojResolveAssemblyReference.cache

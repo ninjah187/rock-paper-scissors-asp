@@ -1,0 +1,45 @@
+﻿@using RockPaperScissorsASP.Parsers
+@model RockPaperScissorsASP.Models.Game
+
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <h2>Game URL:</h2>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        @{
+            string url = @"http://" + @Request.Url.Host + ":" + @Request.Url.Port + "/Game/Show/" + @Model.Id;
+            <a href="@url">
+                <h2>@url</h2>
+            </a>
+        }
+    </div>
+</div>
+
+<div class="rps-hr"></div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Your name:</h2>
+    </div>
+    <div class="col-md-6">
+        <h2>@Model.Player1.Name</h2>
+    </div>
+</div>
+
+<hr class="rps-hr"/>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Your symbol:</h2>
+    </div>
+    <div class="col-md-6">
+        @{
+            var parser = new SymbolToFontAwesomeParser();
+            var className = parser.Parse(Model.Player1.Symbol);
+
+            <div class="rps-show-icon-container">
+                <span class="@className rps-show-icon"></span>
+            </div>
+        }
+    </div>
+</div>

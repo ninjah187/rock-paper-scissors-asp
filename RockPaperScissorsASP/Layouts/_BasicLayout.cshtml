@@ -17,16 +17,16 @@
 
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body id="rps-body">
 
     <div class="jumbotron rps-title-jumbotron">
         <h1>ROCK PAPER SCISSORS</h1>
-        <h2>CHOOSE YOUR SHAPE</h2>
+        <h2 id="rps-header-subtitle"></h2>
         <nav role="navigation" class="hidden-md hidden-lg">
             <ul class="rps-nav-ul">
-                <li><a href="#rps-about-container">ABOUT</a></li>
-                <li><a href="#rps-purpose-container">WHY PLAY?</a></li>
-                <li><a href="#rps-contact-container">CONTACT</a></li>
+                <li id="rps-about-nav"><a href="#">ABOUT</a></li>
+                <li id="rps-purpose-nav"><a href="#">WHY PLAY?</a></li>
+                <li id="rps-contact-nav"><a href="#">CONTACT</a></li>
             </ul>
         </nav>
         <hr />
@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-md-4" id="rps-about-container">
                 <h3 class="rps-footer-header">About game</h3>
-                <hr class="rps-footer-hr"/>
+                <hr class="rps-hr"/>
                 <p class="rps-footer-p">Play rock, paper, scissors with your friends by simple sharing one link.</p>
                 <p class="rps-footer-p">Do it in 6 simple steps:</p>
                 <ol class="rps-footer-ol">
@@ -50,19 +50,19 @@
                     <li>Wait for your friend to participate.</li>
                     <li>Check the result.</li>
                 </ol>
-                <hr class="rps-footer-hr2" />
+                <hr class="rps-hr2" />
             </div>
             <div class="col-md-4" id="rps-purpose-container">
                 <h3 class="rps-footer-header">What's purpose?</h3>
-                <hr class="rps-footer-hr"/>
+                <hr class="rps-hr"/>
                 <p class="rps-footer-p">
                     Have fun with your friends.
                 </p>
-                <hr class="rps-footer-hr2" />
+                <hr class="rps-hr2" />
             </div>
             <div class="col-md-4" id="rps-contact-container">
                 <h3 class="rps-footer-header">Contact</h3>
-                <hr class="rps-footer-hr"/>
+                <hr class="rps-hr"/>
                 <p class="rps-footer-p">
                     <span class="fa fa-github"></span> <a href="#">Github</a>
                 </p>
@@ -75,7 +75,7 @@
                     <dt><span class="fa fa-envelope"></span></dt>
                     <dd><a href="#">Mail</a></dd>
                 </dl>*@
-                <hr class="rps-footer-hr2" />
+                <hr class="rps-hr2" />
             </div>
         </div>
     </div>
@@ -89,12 +89,41 @@
         });
 
         adjustLayoutSize();
+
+        $("#rps-about-nav").click(function() {
+            smoothScrollToElement($("#rps-about-container"));
+        });
+
+        $("#rps-purpose-nav").click(function() {
+            smoothScrollToElement($("#rps-purpose-container"));
+        });
+
+        $("#rps-contact-nav").click(function() {
+            smoothScrollToElement($("#rps-contact-container"));
+        });
     });
 
     function adjustLayoutSize() {
-        var height = $(".rps-footer").css("height");
+        var marginBottomOffset = 40;
+
+        var heightPx = $(".rps-footer").css("height");
+
+        var height = "";
+        for (var i = 0; i < heightPx.length - 2; i++) {
+            height += heightPx[i];
+        }
+        height = Number(height);
+        height += marginBottomOffset;
 
         $("body").css("margin-bottom", height);
+    }
+
+    function smoothScrollToElement(element, continueWith) {
+        $("html, body").animate({
+            scrollTop: element.offset().top
+        },
+        500,
+        continueWith);
     }
 </script>
 

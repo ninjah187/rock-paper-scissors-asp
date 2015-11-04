@@ -21,7 +21,7 @@ namespace RockPaperScissorsASP.Controllers
             Session["ChosenSymbol"] = chosenSymbol;
             ViewBag.GameId = gameId;
 
-            return PartialView(chosenSymbol);
+            return PartialView("~/Views/NewLayout/AskName.cshtml", chosenSymbol);
         }
 
         // saves new Game object in database and returns partial view with info about game and links for opponent
@@ -87,7 +87,7 @@ namespace RockPaperScissorsASP.Controllers
 
                     context.SaveChanges();
 
-                    return PartialView("Create", game);
+                    return PartialView("~/Views/NewLayout/Create.cshtml", game);
                 }
                 else
                 {
@@ -96,14 +96,15 @@ namespace RockPaperScissorsASP.Controllers
                     context.Players.Add(player);
                     context.SaveChanges();
 
-                    return PartialView("ShowPartial", game);
+                    return PartialView("~/Views/NewLayout/ShowPartial.cshtml", game);
                 }
             }
         }
 
         public ActionResult Show(int id)
         {
-            return View(_gameLoader.Load(id));
+            var game = _gameLoader.Load(id);
+            return View("~/Views/NewLayout/Show.cshtml", game);
         }
 
         //public ActionResult Show(string refLink)

@@ -1,0 +1,88 @@
+﻿@using RockPaperScissorsASP.Parsers;
+@model RockPaperScissorsASP.Models.Game
+@{
+    Layout = "~/Layouts/_BasicLayout.cshtml";
+}
+
+<div id="rps-main-show-container" class="container">
+    @{
+        var player1Class = "";
+        var player2Class = "";
+
+        if (Model.Player2 != null)
+        {
+            var gameSolver = new GameSolver();
+
+            var winner = gameSolver.Solve(Model.Player1, Model.Player2);
+
+            if (winner == Winner.Player1)
+            {
+                player1Class = "rps-winner";
+                player2Class = "rps-loser";
+            }
+            else if (winner == Winner.Player2)
+            {
+                player1Class = "rps-loser";
+                player2Class = "rps-winner";
+            }
+        }
+    }
+
+    <div class="row">
+        <div class="col-md-5 @player1Class">
+            <h2>@Model.Player1.Name</h2>
+            @{
+                ISymbolToIconParser iconParser = null;
+                var className = "";
+                if (Model.Player2 != null)
+                {
+                    iconParser = new SymbolToFontAwesomeParser();
+                    className = iconParser.Parse(Model.Player1.Symbol);
+
+                    <div class="rps-show-icon-container">
+                        <span class="@className rps-show-icon"></span>
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="col-md-2">
+            <h1>vs.</h1>
+        </div>
+
+        <div class="col-md-5 @player2Class">
+            @if (Model.Player2 == null)
+            {
+                <div id="rps-play-btn" class="btn btn-default rps-btn">Play</div>
+            }
+            else
+            {
+                <h2>@Model.Player2.Name</h2>
+                className = iconParser.Parse(Model.Player2.Symbol);
+
+                <div class="rps-show-icon-container">
+                    <span class="@className rps-show-icon"></span>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    @{
+        var isCompleted = (Model.Player2 == null) ? "0" : "1";
+    }
+
+    var isGameCompleted = "@isCompleted";
+    //var isGameCompleted = !!"@isCompleted";
+
+    $(document).ready(function () {
+        var subtitle = isGameCompleted === "1" ? "GAME COMPLETED" : "GAME IN PROGRESS";
+        $("#rps-header-subtitle").html(subtitle);
+
+        $("#rps-play-btn").click(function() {
+            var id = "@Model.Id";
+            window.location.replace("/Game/Play/" + id);
+        });
+    });
+</script>

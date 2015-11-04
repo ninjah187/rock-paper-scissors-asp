@@ -1,0 +1,28 @@
+﻿<div id="rps-ask-name-form-container">
+    <div class="form-group">
+        <input id="rps-name-input" type="text"/>
+        <div id="rps-ask-name-form-btn-container">
+            <button type="button" id="rps-ok-btn" class="btn btn-default rps-btn">
+                <span class="fa fa-thumbs-o-up"></span>
+            </button>
+            <button type="button" id="rps-back-btn" class="btn btn-default rps-btn">
+                <span class="fa fa-thumbs-o-down"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    var gameId = "@ViewBag.GameId";
+
+    $(document).ready(function() {
+        $("#rps-ok-btn").click(function() {
+            var name = $("#rps-name-input").val();
+            submitName(gameId, name);
+        });
+
+        $("#rps-back-btn").click(function() {
+            window.location.replace("/Game/Play/");
+        });
+    });
+</script>
