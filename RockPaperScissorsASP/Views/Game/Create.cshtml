@@ -12,7 +12,7 @@
         <div class="col-md-6 col-sm-12">
             @{
                 //string url = @"http://rockpaperscissors.somee.com/Game/Show/" + @Model.Id;
-                string url = @Request.Url.Host;
+                string url = @"http://" + @Request.Url.Host + ":" + @Request.Url.Port + "/Game/Show/" + @Model.Id;
                 <a href="@url">
                     <h2>@url</h2>
                 </a>

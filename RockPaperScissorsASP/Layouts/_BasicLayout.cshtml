@@ -6,19 +6,97 @@
     <meta name="viewport" content="width=device-width"/>
     <title>Rock, Paper, Scissors - be the best!</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <!-- optional bootstrap theme -->
+    <link rel="stylesheet" href="~/Styles/bootstrap.css">
+    <link rel="stylesheet" href="~/Styles/bootstrap-theme.css"> <!-- optional bootstrap theme -->
 
     <link rel="stylesheet" href="~/Styles/rockPaperScissors.css" /> <!-- custom css -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> <!-- Font Awesome -->
+
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div>
-    @RenderBody()
-</div>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <div class="jumbotron rps-title-jumbotron">
+        <h1>ROCK PAPER SCISSORS</h1>
+        <h2>CHOOSE YOUR SHAPE</h2>
+        <nav role="navigation" class="hidden-md hidden-lg">
+            <ul class="rps-nav-ul">
+                <li><a href="#rps-about-container">ABOUT</a></li>
+                <li><a href="#rps-purpose-container">WHY PLAY?</a></li>
+                <li><a href="#rps-contact-container">CONTACT</a></li>
+            </ul>
+        </nav>
+        <hr />
+    </div>
+
+@RenderBody()
+
+<footer class="footer rps-footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" id="rps-about-container">
+                <h3 class="rps-footer-header">About game</h3>
+                <hr class="rps-footer-hr"/>
+                <p class="rps-footer-p">Play rock, paper, scissors with your friends by simple sharing one link.</p>
+                <p class="rps-footer-p">Do it in 6 simple steps:</p>
+                <ol class="rps-footer-ol">
+                    <li>Choose your shape.</li>
+                    <li>Enter your name.</li>
+                    <li>Receive link for your game.</li>
+                    <li>Share link with your friend.</li>
+                    <li>Wait for your friend to participate.</li>
+                    <li>Check the result.</li>
+                </ol>
+                <hr class="rps-footer-hr2" />
+            </div>
+            <div class="col-md-4" id="rps-purpose-container">
+                <h3 class="rps-footer-header">What's purpose?</h3>
+                <hr class="rps-footer-hr"/>
+                <p class="rps-footer-p">
+                    Have fun with your friends.
+                </p>
+                <hr class="rps-footer-hr2" />
+            </div>
+            <div class="col-md-4" id="rps-contact-container">
+                <h3 class="rps-footer-header">Contact</h3>
+                <hr class="rps-footer-hr"/>
+                <p class="rps-footer-p">
+                    <span class="fa fa-github"></span> <a href="#">Github</a>
+                </p>
+                <p class="rps-footer-p">
+                    <span class="fa fa-envelope"></span> <a href="#">karolhnz@gmail.com</a>
+                </p>
+                @*<dl class="rps-footer-dl">
+                    <dt><span class="fa fa-github"></span></dt>
+                    <dd><a href="#">Github</a></dd>
+                    <dt><span class="fa fa-envelope"></span></dt>
+                    <dd><a href="#">Mail</a></dd>
+                </dl>*@
+                <hr class="rps-footer-hr2" />
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="~/Scripts/bootstrap.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(window).resize(function() {
+            adjustLayoutSize();
+        });
+
+        adjustLayoutSize();
+    });
+
+    function adjustLayoutSize() {
+        var height = $(".rps-footer").css("height");
+
+        $("body").css("margin-bottom", height);
+    }
+</script>
+
 </body>
 </html>

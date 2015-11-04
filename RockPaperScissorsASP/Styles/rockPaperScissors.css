@@ -2,87 +2,6 @@
     background: #222;
 }
 
-#rps-head-jumbotron, .rps-content-container  {
-    background: white;
-    color: black;
-    border-style: solid;
-    border-color: black;
-    border-top-width: 10px;
-    border-bottom-width: 10px;
-    border-left-width: 0;
-    border-right-width: 0;
-    text-align: center;
-}
-
-.rps-content-container {
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.rps-bold {
-    font-weight: bold;
-}
-
-.rps-container-full-width {
-    margin: 0 auto;
-    width: 80%;
-}
-
-.rps-h1 {
-    text-align: center;
-}
-
-.rps-symbol-img {
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-    border-style: solid;
-    border-color: black;
-    border-width: 10px;
-}
-
-.rps-symbol-img:hover {
-    border-radius: 25px;
-}
-
-.rps-btn {
-    background: white;
-    color: black;
-    font-size: 24px;
-    font-weight: bold;
-    border-style: solid;
-    border-color: black;
-    border-radius: 0;
-    border-width: 5px;
-    margin: 10px auto;
-}
-
-.rps-btn:hover {
-    background: black;
-    color: white;
-    border-color: white;
-}
-
-.rps-text-input {
-    background: white;
-    color: black;
-    font-size: 32px;
-    font-weight: bold;
-    border-style: solid;
-    border-color: black;
-    border-radius: 0;
-    border-width: 5px;
-    width: 100%;
-}
-
-.rps-hr {
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
-}
-
 .rps-winner {
     color: lawngreen;
 }
@@ -90,3 +9,158 @@
 .rps-loser {
     color: firebrick;
 }
+
+/*********************************/
+/* CSS OF NEW LAYOUT BEGINS HERE */
+/*********************************/
+
+/* Sticky footer styles */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+}
+
+a, a:hover, a:active, a:visited {
+    color: #de1b1b;
+}
+
+.rps-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #2b2b2b;
+    color: #f2f2f2;
+    text-align: center;
+    font-size: small;
+    /*box-shadow: 5px 20px 50px 10px #1b1b1b inset;*/
+    box-shadow: 5px 10px 50px 2px #1b1b1b inset;
+}
+
+/*margin: top right bottom left;*/
+
+.rps-footer-hr {
+    background: #de1b1b;
+    width: 40%;
+    height: 2px;
+    border: none;
+    margin: 5px auto 10px auto;
+}
+
+.rps-footer-hr2 {
+    background: black;
+    opacity: 0.1;
+    width: 100%;
+    border: none;
+    height: 1px;
+}
+
+.rps-footer-header {
+    margin: 10px auto 1px auto;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.rps-footer-p {
+}
+
+.rps-footer-ol {
+    /*text-align: left;*/
+}
+
+.rps-nav-ul {
+    display: inline;
+    list-style-type: none;
+    font-family: "League Gothic";
+    margin: 0 auto;
+    padding: 0;
+    font-size: 24px;
+}
+
+.rps-nav-ul > li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.rps-footer-dl > dt {
+    float: left;
+}
+
+.rps-footer-dl > dd {
+    width: 60px;
+    
+}
+/************************/
+
+body {
+    background: #f6f6f6;
+    font-family: "Lato";
+    font-weight: 100;
+}
+
+.rps-title-jumbotron {
+    border-radius: 0;
+    text-align: center;
+    color: #2b2b2b;
+    /*background: #e9e581;*/
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rps-title-jumbotron > h1 {
+    font-weight: bold;
+    font-family: "League Gothic";
+    font-size: 64px;
+    margin-bottom: 0;
+}
+
+.rps-title-jumbotron > h2 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-family: "League Gothic";
+}
+
+.rps-title-jumbotron > hr {
+    background: #de1b1b;
+    width: 100%;
+    height: 15px;
+    border: none;
+    margin: 0;
+}
+
+.rps-symbol-icon-container {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    text-align: center;
+    font-size: 250px;
+    color: #2b2b2b;
+    background: #f6f6f6;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.rps-symbol-icon-container:hover {
+    color: #f6f6f6;
+    background: #2b2b2b;
+    /*margin: 20px 0;*/
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.rps-symbol-icon-container:active {
+    color: #2b2b2b;
+    background: #e9e581;
+}
+
+.rps-symbol-icon:hover {
+    
+}
+
+/*.rps-symbols-container {
+    padding-bottom: 200px;
+}*/

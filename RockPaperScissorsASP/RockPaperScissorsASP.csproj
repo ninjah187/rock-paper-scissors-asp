@@ -92,9 +92,13 @@
     <Content Include="Images\paper.png" />
     <Content Include="Images\rock.png" />
     <Content Include="Images\scissors.png" />
-    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="Scripts\jquery-2.1.4.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.11.3.min.js" />
+    <Content Include="Styles\bootstrap-theme.css" />
+    <Content Include="Styles\bootstrap-theme.min.css" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Styles\rockPaperScissors.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -128,13 +132,13 @@
     <Content Include="Layouts\_BasicLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Game\AskName.cshtml" />
-    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\Game\Create.cshtml" />
     <Content Include="Views\Game\GameInProgress.cshtml" />
     <Content Include="Views\Game\GameCompleted.cshtml" />
     <Content Include="Views\Game\Show.cshtml" />
     <Content Include="Views\Game\Play.cshtml" />
     <Content Include="Views\Game\ShowPartial.cshtml" />
+    <Content Include="Views\NewLayout\Play.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -125,7 +125,7 @@ namespace RockPaperScissorsASP.Controllers
                 return RedirectToAction("Show", new { id = id });
             }
             
-            return View("Play", g);
+            return View("~/Views/NewLayout/Play.cshtml", g);
         }
     }
 }
