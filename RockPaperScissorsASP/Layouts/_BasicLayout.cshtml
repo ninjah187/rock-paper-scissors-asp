@@ -20,7 +20,7 @@
 <body id="rps-body">
 
     <div class="jumbotron rps-title-jumbotron">
-        <h1>ROCK PAPER SCISSORS</h1>
+        <h1 id="rps-header-title"><a href="/">ROCK PAPER SCISSORS</a></h1>
         <h2 id="rps-header-subtitle"></h2>
         <nav role="navigation" class="hidden-md hidden-lg">
             <ul class="rps-nav-ul">
@@ -106,7 +106,7 @@
     function adjustLayoutSize() {
         var marginBottomOffset = 40;
 
-        var heightPx = $(".rps-footer").css("height");
+        var heightPx = $(".rps-footer").css("height"); // returns e.g. "490px"
 
         var height = "";
         for (var i = 0; i < heightPx.length - 2; i++) {

@@ -222,3 +222,12 @@ body {
     margin: 20px auto;
     text-align: center;
 }
+
+#rps-header-title {
+    
+}
+
+#rps-header-title > a:hover, #rps-header-title > a:link,
+#rps-header-title > a:active, #rps-header-title > a:visited {
+    color: #2b2b2b;
+}

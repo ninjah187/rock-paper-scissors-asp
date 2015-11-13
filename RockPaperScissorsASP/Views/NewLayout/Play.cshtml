@@ -30,7 +30,11 @@
 
     var gameId = "@id";
 
-    function askForName(gId, symbol) {
+    // jQuery variables
+    $headerSubtitle = $("#rps-header-subtitle");
+    $mainContainer = $("#rps-main-container");
+
+    function askForName(gId, symbol, requestDoneCallback) {
         var requestUrl = "/Game/AskName/";
         var request = $.ajax({
             method: "POST",
@@ -38,12 +42,22 @@
             data: { gameId: gId, chosenSymbol: symbol }
         });
 
-        request.done(function (msg) {
-            $("#rps-header-subtitle").html("ENTER YOUR NAME");
+        request.done(function(msg) {
+            $mainContainer.html(msg);
 
-            $("#rps-main-container").html(msg);
+            $headerSubtitle.fadeOut(500, function () {
+                $mainContainer.fadeIn(500);
+                
+                $headerSubtitle.html("ENTER YOUR NAME");
+                $headerSubtitle.fadeIn(500, function() {
+                    smoothScrollToElement($headerSubtitle);
+                });
+
+                //requestDoneCallback();
+            });
         });
     }
+
     function smoothScrollToTop(continueWith) {
         // smooth scrolling to an element:
         $("html, body").animate({
@@ -62,30 +76,57 @@
         });
 
         request.done(function (msg) {
-            $("#rps-header-subtitle").html("GAME CREATED");
-            $("#rps-main-container").html(msg);
+            $mainContainer.html(msg);
+
+            $headerSubtitle.fadeOut(500, function() {
+                $mainContainer.fadeIn(500);
+
+                $headerSubtitle.html("GAME CREATED");
+                $headerSubtitle.fadeIn(500, function() {
+                    smoothScrollToElement($headerSubtitle);
+                });
+            });
+        });
+    }
+
+    function symbolClickHandler(symbolId) {
+        smoothScrollToElement($("html"), function() {
+            $mainContainer.fadeOut(500);
+            $headerSubtitle.fadeOut(500, function() {
+                $headerSubtitle.html("SENDING SYMBOL");
+                $headerSubtitle.fadeIn(500, function() {
+                    askForName(gameId, symbolId);
+                });
+            });
         });
     }
 
     $(document).ready(function () {
-        $("#rps-header-subtitle").html("CHOOSE YOUR SHAPE");
+        $headerSubtitle.html("CHOOSE YOUR SHAPE");
+
+        $headerSubtitle.css("opacity", "0");
+        $mainContainer.css("opacity", "0");
+
+        $headerSubtitle.animate({
+            "opacity": "1"
+        }, 500);
+        $mainContainer.animate({
+            "opacity": "1"
+        }, 500);
+
+        //$headerSubtitle.fadeIn(500);
+        //$mainContainer.fadeIn(500);
 
         $("#rps-rock-symbol").click(function () {
-            smoothScrollToElement($("html"), function() {
-                askForName(gameId, 0);
-            });
+            symbolClickHandler(0);
         });
 
         $("#rps-paper-symbol").click(function () {
-            smoothScrollToElement($("html"), function() {
-                askForName(gameId, 1);
-            });
+            symbolClickHandler(1);
         });
 
         $("#rps-scissors-symbol").click(function () {
-            smoothScrollToElement($("html"), function() {
-                askForName(gameId, 2);
-            });
+            symbolClickHandler(2);
         });
     });
 </script>

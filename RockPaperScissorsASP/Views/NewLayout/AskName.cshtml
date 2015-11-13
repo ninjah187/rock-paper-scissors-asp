@@ -16,13 +16,28 @@
     var gameId = "@ViewBag.GameId";
 
     $(document).ready(function() {
-        $("#rps-ok-btn").click(function() {
+        $("#rps-ok-btn").click(function () {
             var name = $("#rps-name-input").val();
-            submitName(gameId, name);
+            //submitName(gameId, name);
+
+            $mainContainer.fadeOut(500);
+            $headerSubtitle.fadeOut(500, function() {
+                $headerSubtitle.html("CREATING GAME");
+                $headerSubtitle.fadeIn(500, function() {
+                    submitName(gameId, name);
+                });
+            });
+
+            $mainContainer.fadeOut(500, function() {
+                submitName(gameId, name);
+            });
         });
 
-        $("#rps-back-btn").click(function() {
-            window.location.replace("/Game/Play/");
+        $("#rps-back-btn").click(function () {
+            $headerSubtitle.fadeOut();
+            $mainContainer.fadeOut(500, function() {
+                window.location.replace("/Game/Play/");
+            });
         });
     });
 </script>

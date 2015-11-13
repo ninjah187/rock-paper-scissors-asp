@@ -76,13 +76,20 @@
     var isGameCompleted = "@isCompleted";
     //var isGameCompleted = !!"@isCompleted";
 
+    var $headerSubtitle = $("#rps-header-subtitle");
+    var $mainShowContainer = $("#rps-main-show-container");
+
     $(document).ready(function () {
         var subtitle = isGameCompleted === "1" ? "GAME COMPLETED" : "GAME IN PROGRESS";
         $("#rps-header-subtitle").html(subtitle);
 
         $("#rps-play-btn").click(function() {
             var id = "@Model.Id";
-            window.location.replace("/Game/Play/" + id);
+
+            $headerSubtitle.fadeOut(500);
+            $mainShowContainer.fadeOut(500, function() {
+                window.location.replace("/Game/Play/" + id);
+            });
         });
     });
 </script>
