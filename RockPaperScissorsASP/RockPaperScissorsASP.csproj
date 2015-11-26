@@ -160,6 +160,7 @@
     <Content Include="Views\NewLayout\Create.cshtml" />
     <Content Include="Views\NewLayout\ShowPartial.cshtml" />
     <Content Include="Views\NewLayout\Show.cshtml" />
+    <Content Include="ConnectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
